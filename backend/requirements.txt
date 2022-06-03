@@ -1,0 +1,15 @@
+docker_py==1.10.6
+Flask==2.1.2
+flask_cors==3.0.10
+geotiler==0.14.6
+matplotlib==3.1.2
+networkx==2.8.2
+numpy==1.17.4
+pandas==1.4.2
+peartree==0.6.4
+pytz==2022.1
+PyYAML==6.0
+requests==2.22.0
+selenium==4.2.0
+Shapely==1.8.2
+webdriver_manager==3.7.0

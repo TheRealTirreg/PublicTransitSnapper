@@ -1,0 +1,37 @@
+# https://stackoverflow.com/questions/28476117/easy-openstreetmap-tile-displaying-for-python
+import matplotlib.pyplot as plt
+import geotiler
+
+x = []
+y = []
+locations = []
+shapeId = "shp_0_55"
+
+with open("../GTFS/shapes.txt") as file:
+    for i in file:
+        information = i.rstrip().split(",")
+        if information[0] == shapeId:
+            locations += [(float(information[2]), float(information[1]))]
+            x += [float(information[2])]
+            y += [float(information[1])]
+
+limUpperX = max(x)
+limLowerX = min(x)
+limUpperY = max(y)
+limLowerY = min(y)
+paddingX = (limUpperX - limLowerX) * 0.25
+paddingY = (limUpperY - limLowerY) * 0.25
+
+map = geotiler.Map(extent=(limLowerX - paddingX, limLowerY - paddingY, limUpperX + paddingX, limUpperY + paddingY), zoom=16)
+img = geotiler.render_map(map)
+
+fig = plt.figure(figsize=(100, 100))
+ax = plt.subplot(111)
+ax.imshow(img)
+
+xx, yy = zip(*(map.rev_geocode(point) for point in locations))
+ax.scatter(xx, yy, s = 50, c = 'r')
+
+
+plt.axis('off')
+plt.savefig('shapeLine.png', bbox_inches='tight', pad_inches=0)

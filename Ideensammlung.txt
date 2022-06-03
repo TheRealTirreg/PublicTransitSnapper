@@ -1,0 +1,4 @@
+Shapes: Haltestellen an Shapes knüpfen? Oder so wie jetzt jede Kante abfragen?
+
+--------------------------------------
+App: Minutenzahl anzeigen

@@ -1,0 +1,49 @@
+route_id,agency_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_color,route_text_color
+10-10-I-j22-1,1,10,Bissierstraße - Elsässer Straße - Paduaallee,,3,,646363,ffffff
+10-11-I-j22-1,1,11,Haid - St. Georgen - Hauptbahnhof,,3,,646363,ffffff
+10-14-I-j22-1,1,14,Hauptbahnhof - Eschholzstraße - Am Kirchacker - Haid,,3,,646363,ffffff
+10-15-I-j22-1,1,15,Zähringen - Gundelfingen - Wildtal - Berggasse,,3,,646363,ffffff
+10-17-I-j22-1,1,17,Kappel - Littenweiler,,3,,646363,ffffff
+10-18-I-j22-1,1,18,Ebnet - Littenweiler,,3,,646363,ffffff
+10-19-I-j22-1,1,19,Paduaallee - Lehen-Ziegelei - Mundenhof,,3,,646363,ffffff
+10-21-I-j22-1,1,21,Horben - Talstation - Günterstal,,3,,646363,ffffff
+10-22-I-j22-1,1,22,Bissierstraße - IKEA - Mooswaldallee -  Zähringen,,3,,646363,ffffff
+10-23-I-j22-1,1,23,Hauptbahnhof - Industriepark Ost - Zähringen,,3,,646363,ffffff
+10-241-I-j22-1,5,241,Freiburg Apotheke - Schallstadt Bahnhof,,3,,646363,ffffff
+10-24-I-j22-1,1,24,Haid - Rieselfeld - Paduaallee - Mooswaldallee - Gundelfingen,,3,,646363,ffffff
+10-25-I-j22-1,1,25,Hugstetten Bahnhof - Hochdorf - Industriegebiet Nord - Zähringen,,3,,646363,ffffff
+10-27-I-j22-1,1,27,Europaplatz - Herdern,,3,,646363,ffffff
+10-32-I-j22-1,1,32,Paduaallee - Waltershofen - Opfingen - Rieselfeld - Haid,,3,,646363,ffffff
+10-33-I-j22-1,1,33,Haid - Opfingen - Tiengen - Munzingen,,3,,646363,ffffff
+10-34-I-j22-1,1,34,Haid - St. Georgen - KEIDEL Mineral-Thermalbad,,3,,646363,ffffff
+10-35-I-j22-1,1,35,Haid - Tiengen - Munzingen,,3,,646363,ffffff
+10-36-I-j22-1,1,36,Bissierstraße - Mooswald - Landwasser - Hochdorf,,3,,646363,ffffff
+10-46-I-j22-1,3,N46,Freiburg ZOB - Breisach,,3,,646363,ffffff
+10-72-I-j22-1,1,SEV,SEV,,3,,13a538,ffffff
+10-74-I-j22-1,1,SEV,SEV,,3,,ea5297,ffffff
+11-1-I-j22-1,1,1,Littenweiler - Bertoldsbrunnen - Landwasser,,0,,e8001b,ffffff
+11-2-I-j22-1,1,2,Günterstal - Bertoldsbrunnen - Hauptbahnhof - Hornusstraße,,0,,13a538,ffffff
+11-3-I-j22-1,1,3,Vauban - Bertoldsbrunnen - Haid,,0,,f59e00,ffffff
+11-4-I-j22-1,1,4,Zähringen - Bertoldsbrunnen - Messe,,0,,ea5297,ffffff
+11-5-I-j22-1,1,5,Rieselfeld - Haslach - Stadttheater - Europaplatz,,0,,008bc5,ffffff
+11-97-I-j22-1,1,SC,SC,,0,,0000ff,ffffff
+13-10-I-j22-1,1,10,Bissierstraße - Elsässer Straße - Paduaallee,,3,,646363,ffffff
+13-15-I-j22-1,1,15,Zähringen - Gundelfingen - Wildtal - Berggasse,,3,,646363,ffffff
+13-16-I-j22-1,1,16,Zähringen - Gundelfingen,,3,,646363,ffffff
+13-21-I-j22-1,1,21,Horben - Talstation - Günterstal,,3,,646363,ffffff
+13-241-I-j22-1,5,241,Freiburg Apotheke - Schallstadt Bahnhof,,3,,646363,ffffff
+13-24-I-j22-1,1,24,Haid - Rieselfeld - Paduaallee - Mooswaldallee - Gundelfingen,,3,,646363,ffffff
+13-25-I-j22-1,1,25,Hugstetten Bf - Hochdorf - Industriegebiet Nord - Zähringen,,3,,646363,ffffff
+13-31-I-j22-1,3,31,Paduaallee - Niederrimsingen - Gündlingen - Breisach,,3,,646363,ffffff
+13-32-I-j22-1,1,32,Paduaallee - Waltershofen - Opfingen - Rieselfeld - Haid,,3,,646363,ffffff
+13-33-I-j22-1,1,33,Haid - Opfingen - Tiengen - Munzingen,,3,,646363,ffffff
+13-34-I-j22-1,1,34,Haid - St. Georgen - KEIDEL Mineral-Thermalbad,,3,,646363,ffffff
+13-46-I-j22-1,3,N46,Freiburg ZOB - Breisach,,3,,646363,ffffff
+13-47-I-j22-1,3,N47,Freiburg ZOB - Ihringen,,3,,646363,ffffff
+13-74-I-j22-1,1,SEV,SEV,,3,,ea5297,ffffff
+14-17-I-j22-1,1,17,Kappel - Littenweiler,,3,,646363,ffffff
+14-18-I-j22-1,1,18,Ebnet - Littenweiler,,3,,646363,ffffff
+14-21-I-j22-1,1,21,Horben - Talstation - Günterstal,,3,,646363,ffffff
+14-22-I-j22-1,1,22,Zähringen - Mooswaldallee - IKEA - Bissierstraße,,3,,646363,ffffff
+14-33-I-j22-1,1,33,Munzingen - Tiengen - Opfingen - Haid,,3,,646363,ffffff
+14-35-I-j22-1,1,35,Munzingen - Tiengen - Haid,,3,,646363,ffffff
