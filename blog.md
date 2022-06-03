@@ -98,10 +98,13 @@ Since we are getting all close edges within a 100 meters radius, the opposite di
 If we remember the order of the edges in a shape, we can check if the edges are in ascending order oder descending order.
 Travelling in descending order means that we are travelling in the opposite direction of the shape. Thus, we penalize this direction.
 In contrast, an ascending order corresponds to the correct direction, so we just set the penalty to 0.
-$$P_{transition}(e^1 \to e^2) = ||e^1||_{great\\_circle} + ||e^2||_{great\\_circle} + shortest\\_path(e^1, e^2) + direction\\_penalty(e^1, e^2)$$
+\begin{align*}
+    P_{transition}(e^1 \to e^2) &= ||e^1||_{great\\_circle} + ||e^2||_{great\\_circle}\newline
+    &\phantom{\text{= }} + \text{len_shortest\_path}(e^1, e^2) + \text{direction\_penalty}(e^1, e^2)
+\end{align*}
 If there is no such direct path available, we penalize this path by adding a high weight.
 This has the effect that this path can then still be matched if there is no other possibility. This can happen due to a transfer between vehicles.\
-As the start and end nodes of \\(G_{markov}\\) do not represent edges, we need a different transition probability for those. 
+As the start and end nodes of \\(G_{markov}\\) do not represent edges, we need a different transition probability for those.
 For the start node, we use the shortest great circle distance of the first GPS point to the first edge as weight.
 <img src="/../../img/project-map-matching-mobile-phones-to-public-transit-vehicles/transition_start.png" title="Transition from Start"></img>
 In the same manner, we calculate the distance between the last edge to the last GPS point.
