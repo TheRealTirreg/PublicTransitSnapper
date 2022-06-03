@@ -226,15 +226,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   const Text(
                       "When using the mobile app, write the server address where the backend is running.\n"
-                      "When testing with ControlChromeDevTools, write http://localhost."
+                      "When testing with ControlChromeDevTools, write localhost."
                   ),
                   TextFormField(
                     controller: serverAddressController,
-                    decoration: const InputDecoration(hintText: "server address, e.g.: yourserver.com"),
+                    decoration: const InputDecoration(hintText: "server address (yourserver.com)"),
                   ),
                   TextFormField(
                     controller: portController,
-                    decoration: const InputDecoration(hintText: "port, default: 5000"),
+                    decoration: const InputDecoration(hintText: "port (default: 5000)"),
                   ),
                 ],
               ),
