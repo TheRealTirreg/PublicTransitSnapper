@@ -1,0 +1,6 @@
+# C++ files
+# Executable
+*Main
+*Test
+# Compiled Object Files
+*.o

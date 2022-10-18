@@ -1,0 +1,94 @@
+# You can add your city/region here.
+# Make sure that the OSM region is bigger than the GTFS network!
+# For example, for Hamburg, fetch the OSM of Germany, as the OSM for Hamburg would be too small to cover every trip.
+#
+# OUTPUT: The GTFS files will land in the path-to-GTFS/gtfs-out folder.
+#
+# For CITY specify
+# CITY:
+#   generate-new-shapes: bool   # generates new shapes.txt with pfaedle
+#   path-to-GTFS: path_name     # path to the GTFS data set
+#   path-to-OSM: path_name      # path to OSM for pfaedle
+#   GTFS-link: link             # download link for GTFS data set
+#   OSM-link: link              # download link for OSM data set
+#   timezone: Europe/Berlin     # timezone of the city
+#
+# Specify if GTFS Realtime is used
+#   GTFS-RT-feed: link          # link to the feed
+#   RT-UPDATE-PERIOD: int       # fetch rt update every n minutes
+#
+# API_key_name must be same as in credentials
+#   RT-API-key: API_key_name
+#
+# Insert the API_key_name: "API_key" into credentials.yml
+# create a credentials.yml if it is not present yet.
+
+Freiburg:
+    generate-new-shapes: True
+    path-to-GTFS: GTFS/Freiburg/VAG
+    path-to-OSM: GTFS/Freiburg/OSM
+    GTFS-link: https://www.vag-freiburg.de/fileadmin/gtfs/VAGFR.zip
+    OSM-link: http://download.geofabrik.de/europe/germany/baden-wuerttemberg/freiburg-regbez-latest.osm.bz2
+    GTFS-RT-feed: http://localhost:9090/tripupdates
+    timezone: Europe/Berlin
+    RT-UPDATE-PERIOD: 1
+Hamburg:
+    generate-new-shapes: True
+    path-to-GTFS: GTFS/Hamburg/HVV
+    path-to-OSM: GTFS/Hamburg/OSM
+    # warning: The HVV GTFS link changes every week or so!
+    GTFS-link: https://daten.transparenz.hamburg.de/Dataport.HmbTG.ZS.Webservice.GetRessource100/GetRessource100.svc/40c90bad-79e6-4f03-ac33-8f1f7095f7a1/Upload__HVV_Rohdaten_GTFS_Fpl_20220408.zip
+    OSM-link: https://download.geofabrik.de/europe/germany-latest.osm.bz2
+    timezone: Europe/Berlin
+Schweiz:
+    generate-new-shapes: True
+    path-to-GTFS: GTFS/Schweiz/SBB
+    path-to-OSM: GTFS/Schweiz/OSM
+    GTFS-link: https://opentransportdata.swiss/dataset/00811070-1b51-43da-87af-b1901e906323/resource/8500d4f0-2e07-49cb-bfcf-7d48a3750014/download/gtfs_fp2022_2022-10-12_04-15.zip
+    OSM-link: https://download.geofabrik.de/europe/switzerland-latest.osm.bz2
+    timezone: Europe/Berlin
+    GTFS-RT-feed: https://api.opentransportdata.swiss/gtfsrt2020
+    RT-API-key: SWISSAPI
+    RT-UPDATE-PERIOD: 2
+Augsburg:
+    generate-new-shapes: True
+    path-to-GTFS: GTFS/Augsburg/AVV
+    path-to-OSM: GTFS/Augsburg/OSM
+    GTFS-link: https://www.avv-augsburg.de/fileadmin/user_upload/OpenData/GTFS_AVV.zip
+    OSM-link: https://download.geofabrik.de/europe/germany/bayern/schwaben-latest.osm.bz2
+    timezone: Europe/Berlin
+Muenchen:
+    generate-new-shapes: True
+    path-to-GTFS: GTFS/Muenchen/MVG
+    path-to-OSM: GTFS/Muenchen/OSM
+    GTFS-link: https://www.mvg.de/static/gtfs/gtfs-mvg.zip
+    OSM-link: https://download.geofabrik.de/europe/germany/bayern/oberbayern-latest.osm.bz2
+    timezone: Europe/Berlin
+RVDeutschland:  # Regionalverkehr Deutschland
+    generate-new-shapes: True
+    path-to-GTFS: GTFS/Deutschland/RV
+    path-to-OSM: GTFS/Deutschland/OSM
+    GTFS-link: https://download.gtfs.de/germany/rv_free/latest.zip
+    OSM-link: https://download.geofabrik.de/europe/germany-latest.osm.bz2
+    timezone: Europe/Berlin
+NVDeutschland:  # Nahverkehr Deutschland
+    generate-new-shapes: True
+    path-to-GTFS: GTFS/Deutschland/NV
+    path-to-OSM: GTFS/Deutschland/OSM
+    GTFS-link: https://download.gtfs.de/germany/nv_free/latest.zip
+    OSM-link: https://download.geofabrik.de/europe/germany-latest.osm.bz2
+    timezone: Europe/Berlin
+FVDeutschland:  # Fernverkehr Deutschland
+    generate-new-shapes: True
+    path-to-GTFS: GTFS/Deutschland/FV
+    path-to-OSM: GTFS/Deutschland/OSM
+    GTFS-link: https://download.gtfs.de/germany/fv_free/latest.zip
+    OSM-link: https://download.geofabrik.de/europe/germany-latest.osm.bz2
+    timezone: Europe/Berlin
+Zurich:
+    generate-new-shapes: False
+    path-to-GTFS: GTFS/Schweiz/Zurich
+    path-to-OSM: GTFS/Deutschland/OSM  # egal
+    GTFS-link: https://download.gtfs.de/germany/fv_free/latest.zip  # egal
+    OSM-link: https://download.geofabrik.de/europe/germany-latest.osm.bz2  # egal
+    timezone: Europe/Berlin

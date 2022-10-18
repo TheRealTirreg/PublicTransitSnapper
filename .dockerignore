@@ -1,0 +1,9 @@
+# only need backend and frontend content
+*
+!backend/*
+!frontend/*
+# do not ignore the start_servers.sh
+!start_servers.sh
+# ignore saved_dictionaries and GTFS folder, they are included as volumes
+**/saved_dictionaries
+**/GTFS

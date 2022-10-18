@@ -1,0 +1,7 @@
+*.pkl filter=lfs diff=lfs merge=lfs -text
+*.shelve.* filter=lfs diff=lfs merge=lfs -text
+*.osm filter=lfs diff=lfs merge=lfs -text
+*.xlsx filter=lfs diff=lfs merge=lfs -text
+*.json filter=lfs diff=lfs merge=lfs -text
+*.solution filter=lfs diff=lfs merge=lfs -text
+*.txt filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,8 @@
+# ignore all folder with the saved data
+saved_*
+# ignore folder with GTFS data
+GTFS
+# ignore plot GTFS
+PlotGTFS
+# ignore test folder
+test*

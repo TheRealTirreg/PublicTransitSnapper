@@ -1,0 +1,10 @@
+version: "3"
+services:
+        web:
+                build: .
+                ports:
+                        - "5000:5000"
+                        - "21698:21698"
+                volumes:
+                        - ./backend/saved_dictionaries:/app/saved_dictionaries:rw
+                        - ./backend/GTFS:/app/GTFS:rw

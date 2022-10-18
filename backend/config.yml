@@ -1,0 +1,63 @@
+# Configuration for API
+
+# Choose a city/location name from cities_config.yml
+CITY: Muenchen
+# Choose if dictionaries should be generated at start, or if old dictionaries should be used.
+UPDATE_DICTS: True
+# Choose use of realtime data, gtfs-rt feed needed in cities_config.yml
+USE_GTFS_RT: False
+# Choose auto fetching of new GTFS data
+# note that some cities have changing links, so this option would always fetch the same data
+UPDATE_GTFS: False
+# Chose to fetch new GTFS data when starting the docker container
+UPDATE_GTFS_ON_STARTUP: False
+# Time, where auto fetching is done, old data will then be replaced
+# Syntax: `HH:MM:SS`
+# !!!DISCLAIMER!!!: Use UTC time!
+# For example, if you are in Berlin during summer, write 14:00:00 if you want to refresh at 12:00:00 (UTC+2)
+# and if you are in Berlin during summer, write 14:00:00 if you want to refresh at 13:00:00 (UTC+1)
+UPDATE_TIME: '05:00:00'
+# Choose how many days between new GTFS data is fetched
+UPDATE_FREQUENCY: 7
+
+# enable Debug prints
+DEBUG: True
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Configuration for map-matcher
+
+# If the frontend sends a trip_id, prefer this if multiple trips have the same probability
+PREFER_LAST_TRIP: False
+# baseline algorithm used for evaluation, no time is taken into account
+# only get the closest edge for last point in the location tuples
+BASELINE: False
+# baseline algorithm used for evaluation, no time is taken into account, uses HMM
+BASELINE_HMM: False
+# finding the most probable trip after HMM, by minimizing average time deviation from the schedule
+TIME_AFTER: False
+# the percentage of gps points that can be skipped when building HMM, if near edges is empty
+SLACK: 0.2
+# for the active close edges allow a broader time frame than schedule
+# earliness allows vehicles to be early in minutes
+EARLINESS : 1
+# delay allows vehicles to be delays in minutes
+DELAY: 5
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Configuration for ControlChromeDevTools
+
+# server hosting the API
+SERVER_ADDRESS: localhost # https://ad-research.informatik.uni-freiburg.de/transitmm
+SERVER_PORT: 5000 # 443
+# for proxy server
+PROXY_ADDRESS: localhost
+PROXY_PORT: 5001
+# if using web app, the web app must run on localhost:21698
+# if using android studio with flutter:
+# Chrome connects to this port to access the webapp provided by Flutter / Android Studio
+# make sure that --web-port=21698 or the port you have chosen
+# is set in "Run -> Edit configurations -> Additional run args" in Android Studio
+DEVTOOL_PORT: 21698
+# Choose if Dict for generating a fake trip coordinates and times should be recomputed
+# only needed if GTFS has changed
+NEW_GTFS: True

@@ -1,0 +1,6 @@
+# server hosting the API
+SERVER_ADDRESS: https://ad-research.informatik.uni-freiburg.de/transitmm
+SERVER_PORT: 443
+# Used for testing purposes with ControlChromeDevTools.py
+PROXY_ADDRESS: localhost
+PROXY_PORT: 5001
