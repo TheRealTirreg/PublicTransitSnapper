@@ -85,10 +85,3 @@ FVDeutschland:  # Fernverkehr Deutschland
     GTFS-link: https://download.gtfs.de/germany/fv_free/latest.zip
     OSM-link: https://download.geofabrik.de/europe/germany-latest.osm.bz2
     timezone: Europe/Berlin
-Zurich:
-    generate-new-shapes: False
-    path-to-GTFS: GTFS/Schweiz/Zurich
-    path-to-OSM: GTFS/Deutschland/OSM  # egal
-    GTFS-link: https://download.gtfs.de/germany/fv_free/latest.zip  # egal
-    OSM-link: https://download.geofabrik.de/europe/germany-latest.osm.bz2  # egal
-    timezone: Europe/Berlin

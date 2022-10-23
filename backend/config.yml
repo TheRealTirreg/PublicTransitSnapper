@@ -1,7 +1,7 @@
 # Configuration for API
 
 # Choose a city/location name from cities_config.yml
-CITY: Muenchen
+CITY: Freiburg
 # Choose if dictionaries should be generated at start, or if old dictionaries should be used.
 UPDATE_DICTS: True
 # Choose use of realtime data, gtfs-rt feed needed in cities_config.yml
@@ -10,7 +10,7 @@ USE_GTFS_RT: False
 # note that some cities have changing links, so this option would always fetch the same data
 UPDATE_GTFS: False
 # Chose to fetch new GTFS data when starting the docker container
-UPDATE_GTFS_ON_STARTUP: False
+UPDATE_GTFS_ON_STARTUP: True
 # Time, where auto fetching is done, old data will then be replaced
 # Syntax: `HH:MM:SS`
 # !!!DISCLAIMER!!!: Use UTC time!
@@ -47,8 +47,8 @@ DELAY: 5
 # Configuration for ControlChromeDevTools
 
 # server hosting the API
-SERVER_ADDRESS: localhost # https://ad-research.informatik.uni-freiburg.de/transitmm
-SERVER_PORT: 5000 # 443
+SERVER_ADDRESS: localhost
+SERVER_PORT: 5000
 # for proxy server
 PROXY_ADDRESS: localhost
 PROXY_PORT: 5001
