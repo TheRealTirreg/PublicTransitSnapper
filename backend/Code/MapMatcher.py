@@ -340,7 +340,7 @@ class NetworkOfRoutes:
             current_state = []
             lat, lon, tim = coord
 
-            # get all edges that are reasonably close to the point
+            # get all edges that are reasonably close to the point while being active at the time
             close_edges = self.get_close_edges(lat, lon, tim, dist)
 
             if slack > 0 and not close_edges:
@@ -504,6 +504,7 @@ class NetworkOfRoutes:
         for shape, edges_list in shapes_dict.items():
             # sort by the distance from edge to the point -> get the closest active edge of a shape
             for edge_id, sequence_id, _ in sorted(edges_list, key=lambda x: x[2]):
+                # ids look like (service_id, trip_id, route_id, trip_segment_ids) where ts_ids -> active trip segments
                 ids = self.tt.get_active_trips_information(
                     shape, edge_id, tim_local, delay=self.delay, earliness=self.earliness,
                     ignore_time=(self.baseline or self.baseline_hmm))
@@ -520,6 +521,13 @@ class NetworkOfRoutes:
 
         # sort by the distance between the gps point and the edge, aka real_dist
         ret.sort(key=lambda x: x[5])
+
+        # ret looks like:
+        # [(edge_id, length, from location, to location, shapes with sequence and trip information, real_dist), ...]
+        # -> Shape with sequence and trip information looks like:
+        # [(shape, sequence_id), (service_id, trip_id, route_id, trip_segment_ids)]
+        # where trip_segment_ids is a list of ids that are active at the time
+        # trip_segment_ids links to the trip segments that are active on the edge at the time
         return ret
 
     def query_near_edges(self, point: Point, max_dist: float) -> list:

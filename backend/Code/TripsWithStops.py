@@ -344,6 +344,9 @@ class TripWithStopsAndTimes:
             end_tuple, _, _ = stops_list[trip_segment_id + 1]
             start_time, start_ot = start_tuple
             end_time, end_ot = end_tuple
+            
+            # TODO: Interpolate the stop's start and end time to the edges' position by moving along the shape.
+            # This way, we have a more accurate time for when the vehicle is at the edge.
 
             td_start, td_end = timedelta(0), timedelta(0)
             # if user is in overtime, the start time and end time might be from the last day
