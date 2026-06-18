@@ -4,7 +4,7 @@ Bachelor's thesis by Gerrit Freiwald and Robin Wu
 """
 
 # so that doctest does not get stuck with API
-if __name__ == "__main__":
+if True or __name__ == "__main__":
     from datetime import datetime
     from threading import Thread
     from time import sleep, time
@@ -20,11 +20,11 @@ if __name__ == "__main__":
     from Utilities import convert_utc_to_local_time
 
     # get config info
-    config = get_config()
+    config = get_config(file_name=r"/app/config.yml")
     DEBUG = config["DEBUG"]
     CITY = config["CITY"]
     use_gtfs_rt = config["USE_GTFS_RT"]
-    city_config = get_city_config(CITY, gtfs_rt=use_gtfs_rt)
+    city_config = get_city_config(CITY, gtfs_rt=use_gtfs_rt, file_name=r"/app/cities_config.yml")
     timezone = city_config["timezone"]
 
     # fetch gtfs rt updates
@@ -40,11 +40,11 @@ if __name__ == "__main__":
         gtfs_rt.fetch_trip_updates_every_n_minutes(city_config["RT-UPDATE-PERIOD"])(updates)
 
     # get GTFS path
-    gtfs_path = "../" + city_config["path-to-GTFS"] + "/gtfs-out/"
+    gtfs_path = city_config["path-to-GTFS"] + "/gtfs-out/"
     print(f"gtfs path: {gtfs_path}")
 
     # get saved_dictionaries path
-    saved_dictionaries_path = r"../saved_dictionaries/" + CITY + "/"
+    saved_dictionaries_path = r"/app/saved_dictionaries/" + CITY + "/"
     print(f"saved_dictionaries path: {saved_dictionaries_path}")
 
     # try to fetch new GTFS files
@@ -176,7 +176,7 @@ if __name__ == "__main__":
         It performs a dynamic map-matching und returns the matched trip with
         further information.
         """
-        print("Polyline Request start", flush=True)
+        # print("Polyline Request start", flush=True)
         if not IS_API_ON:
             print("API is offline", flush=True)
             return {}, 503
@@ -207,7 +207,7 @@ if __name__ == "__main__":
             print("answer ", flush=True)
             print(most_likely_dict, flush=True)
             print("", flush=True)
-        print("Polyline Request end", flush=True)
+        # print("Polyline Request end", flush=True)
         return most_likely_dict, 200
 
     @app.route('/connections', methods=['GET', 'POST'])
@@ -326,4 +326,4 @@ if __name__ == "__main__":
         print("Chat Request end", flush=True)
         return ret_dct, 200
 
-    run_app()
+    # run_app()

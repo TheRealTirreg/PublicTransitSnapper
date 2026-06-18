@@ -20,7 +20,7 @@ def get_trip_info_dict(city: str, path_to_gtfs: str, new_gtfs: bool = False, pat
     generates and saves dictionary, if none exists yet
     """
     if path_to_saved is None:
-        path_to_saved_dictionaries = r"../saved_dictionaries/" + city
+        path_to_saved_dictionaries = r"/home/rgb-ftwsl/Code/master/PublicTransitSnapper/backend/saved_dictionaries/" + city
     else:
         path_to_saved_dictionaries = path_to_saved
 

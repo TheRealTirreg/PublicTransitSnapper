@@ -6,7 +6,7 @@ from yaml import safe_load, YAMLError
 from typing import Union
 
 
-def get_config(file_name: str = r"../config.yml", dev_tools: bool = False) -> dict:
+def get_config(file_name: str = r"/home/rgb-ftwsl/Code/master/PublicTransitSnapper/backend/config.yml", dev_tools: bool = False) -> dict:
     """
     Gets settings from the config.yml file.
 
@@ -56,7 +56,7 @@ def get_config(file_name: str = r"../config.yml", dev_tools: bool = False) -> di
     return config
 
 
-def get_credentials(params: list, file_name: str = "../credentials.yml") -> dict:
+def get_credentials(params: list, file_name: str = "/home/rgb-ftwsl/Code/master/PublicTransitSnapper/backend/credentials.yml") -> dict:
     """
     Read API key from credentials.yml
     """
@@ -79,7 +79,7 @@ def get_credentials(params: list, file_name: str = "../credentials.yml") -> dict
 
 
 def get_city_config(
-        city: str, params: list = None, gtfs_rt: bool = False, file_name: str = "../cities_config.yml") -> dict:
+        city: str, params: list = None, gtfs_rt: bool = False, file_name: str = "/home/rgb-ftwsl/Code/master/PublicTransitSnapper/backend/cities_config.yml") -> dict:
     """
     Gets the config parameters from cities_config.yml file.
     Either use the given parameters or only check the once given in params.
@@ -137,7 +137,7 @@ def is_city_in_city_config(city: str) -> bool:
     """
     Checks whether the given string is in cities_config.yml
     """
-    with open("../cities_config.yml", "r") as stream:
+    with open("/home/rgb-ftwsl/Code/master/PublicTransitSnapper/backend/cities_config.yml", "r") as stream:
         try:
             cities_config_dct = safe_load(stream)
             if city not in cities_config_dct:
@@ -186,7 +186,7 @@ def get_city_config_attribute(city: str, city_attribute: str) -> Union[str, bool
         }
     }
     """
-    with open("../cities_config.yml", "r") as stream:
+    with open("/home/rgb-ftwsl/Code/master/PublicTransitSnapper/backend/cities_config.yml", "r") as stream:
         try:
             cities_config_dct = safe_load(stream)
             if city not in cities_config_dct:

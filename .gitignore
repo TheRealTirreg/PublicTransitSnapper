@@ -4,6 +4,8 @@ __pycache__/
 *.osm
 *.bz2
 backend/**/gtfs-in/*.txt
+backend/GTFS/Freiburg*/**/*.txt
+backend/saved_dictionaries/
 cmake-build-debug/
 backend/Code/CREDENTIALS.yml  # used for GTFS-RT API Keys
 

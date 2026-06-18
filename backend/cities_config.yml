@@ -23,6 +23,15 @@
 # Insert the API_key_name: "API_key" into credentials.yml
 # create a credentials.yml if it is not present yet.
 
+Freiburg-Short:
+    generate-new-shapes: False
+    path-to-GTFS: /app/GTFS/Freiburg-Short
+    path-to-OSM: /app/GTFS/Freiburg-Short/OSM
+    GTFS-link: https://www.vag-freiburg.de/fileadmin/gtfs/VAGFR.zip
+    OSM-link: http://download.geofabrik.de/europe/germany/baden-wuerttemberg/freiburg-regbez-latest.osm.bz2
+    GTFS-RT-feed: http://localhost:9090/tripupdates
+    timezone: Europe/Berlin
+    RT-UPDATE-PERIOD: 1
 Freiburg:
     generate-new-shapes: True
     path-to-GTFS: GTFS/Freiburg/VAG

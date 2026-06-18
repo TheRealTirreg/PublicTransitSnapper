@@ -1,7 +1,7 @@
 # Configuration for API
 
 # Choose a city/location name from cities_config.yml
-CITY: Freiburg
+CITY: Freiburg-Short
 # Choose if dictionaries should be generated at start, or if old dictionaries should be used.
 UPDATE_DICTS: True
 # Choose use of realtime data, gtfs-rt feed needed in cities_config.yml
@@ -10,7 +10,7 @@ USE_GTFS_RT: False
 # note that some cities have changing links, so this option would always fetch the same data
 UPDATE_GTFS: False
 # Chose to fetch new GTFS data when starting the docker container
-UPDATE_GTFS_ON_STARTUP: True
+UPDATE_GTFS_ON_STARTUP: False
 # Time, where auto fetching is done, old data will then be replaced
 # Syntax: `HH:MM:SS`
 # !!!DISCLAIMER!!!: Use UTC time!
@@ -21,7 +21,7 @@ UPDATE_TIME: '05:00:00'
 UPDATE_FREQUENCY: 7
 
 # enable Debug prints
-DEBUG: True
+DEBUG: False
 
 # ----------------------------------------------------------------------------------------------------------------------
 # Configuration for map-matcher
@@ -39,7 +39,7 @@ TIME_AFTER: False
 SLACK: 0.2
 # for the active close edges allow a broader time frame than schedule
 # earliness allows vehicles to be early in minutes
-EARLINESS : 1
+EARLINESS : 5
 # delay allows vehicles to be delays in minutes
 DELAY: 5
 

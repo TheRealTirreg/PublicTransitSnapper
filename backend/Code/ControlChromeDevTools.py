@@ -97,7 +97,7 @@ if __name__ == '__main__':
     DEVTOOL_PORT = config["DEVTOOL_PORT"]
     CITY = config["CITY"]
     NEW_GTFS = config["NEW_GTFS"]
-    path_to_gtfs = r"../" + get_city_config_attribute(CITY, "path-to-GTFS") + "/gtfs-out/"
+    path_to_gtfs = r"/home/rgb-ftwsl/Code/master/PublicTransitSnapper/backend/" + get_city_config_attribute(CITY, "path-to-GTFS") + "/gtfs-out/"
 
     # get info about all trips
     trip_info = get_trip_info_dict(CITY, path_to_gtfs, NEW_GTFS)
