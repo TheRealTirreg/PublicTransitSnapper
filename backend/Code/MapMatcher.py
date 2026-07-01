@@ -105,6 +105,7 @@ class NetworkOfRoutes:
         # route: [(lat, lon, unix_time)]
         if route and route[0] != '0, 0, 0':
             # route = remove_outliers(route)
+
             if self.baseline:
                 path = self.calculate_path([route[-1]], dist)
             else:
@@ -269,7 +270,7 @@ class NetworkOfRoutes:
                     if trip[1] == last_trip_id:
                         most_likely_trip = trip
                         break
-
+            
             # do the time based matching here
             if not most_likely_trip and self.time_after:
                 avg_diff = {}
@@ -284,7 +285,7 @@ class NetworkOfRoutes:
                 most_likely_trip = min(avg_diff, key=avg_diff.get)
                 end_time = time()
                 if self.print_time:
-                    print(f"Time based matching took {end_time - start_time} seconds")
+                    print(f"Time based matching took {end_time - start_time} seconds", flush=True)
             # if no trip was found, just take the first one
             elif not most_likely_trip:
                 most_likely_trip = most_likely_trips[0]

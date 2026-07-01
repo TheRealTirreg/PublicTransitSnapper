@@ -3,7 +3,7 @@
 # Choose a city/location name from cities_config.yml
 CITY: Freiburg-Short
 # Choose if dictionaries should be generated at start, or if old dictionaries should be used.
-UPDATE_DICTS: True
+UPDATE_DICTS: False
 # Choose use of realtime data, gtfs-rt feed needed in cities_config.yml
 USE_GTFS_RT: False
 # Choose auto fetching of new GTFS data
