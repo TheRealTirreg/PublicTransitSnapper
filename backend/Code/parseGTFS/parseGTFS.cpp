@@ -299,6 +299,23 @@ void generate_service_id_to_service_information_dict(
                                    extra_dates, removed_dates);
     }
 
+    // some feeds define service_ids only via calendar_dates.txt (exception_type
+    // 1, "added") without ever listing them in calendar.txt. Those service_ids
+    // would otherwise be missing from the output, so add them here with no
+    // weekly pattern; the service is only active on the given extra_dates.
+    // start_date/end_date are left wide open since calendar.txt does not
+    // define a validity range for these service_ids.
+    for (const auto& service_id_and_dates : service_id_calendar_dates_map) {
+        const string& service_id = service_id_and_dates.first;
+        if (j.count(service_id) != 0) continue;
+
+        const vector<string>& extra_dates = get<0>(service_id_and_dates.second);
+        const vector<string>& removed_dates = get<1>(service_id_and_dates.second);
+
+        j[service_id] = make_tuple(vector<int>(), "00010101", "99991231",
+                                   extra_dates, removed_dates);
+    }
+
     write_to_file(j, SERVICE_ID_TO_SERVICE_INFORMATION, output_folder);
 }
 
