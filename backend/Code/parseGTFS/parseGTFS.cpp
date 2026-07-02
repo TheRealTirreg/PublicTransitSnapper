@@ -181,6 +181,22 @@ const map<string, vector<tuple<DateOt, DateOt, string>>>
     string departure_time; string stop_id;
 
     while (in.read_row(trip_id, arrival_time, departure_time, stop_id)) {
+        // times that overflow by 2 days or more can't be represented by the
+        // single extra-day overflow bool used throughout the rest of the
+        // pipeline, so skip such stop_times rows rather than aborting.
+        const std::optional<DateOt> arrival =
+            convert_GTFS_date_to_string(arrival_time);
+        const std::optional<DateOt> departure =
+            convert_GTFS_date_to_string(departure_time);
+        if (!arrival.has_value() || !departure.has_value()) {
+            std::cerr << "Skipping stop_times row for trip_id " << trip_id
+                       << " at stop_id " << stop_id << ": unsupported time "
+                       << "overflow (arrival: " << arrival_time
+                       << ", departure: " << departure_time << ")"
+                       << std::endl;
+            continue;
+        }
+
         j1[stop_id].push_back(make_tuple(trip_id, departure_time));
 
         if (trip_id_to_info_map.count(trip_id) == 0) {
@@ -191,8 +207,7 @@ const map<string, vector<tuple<DateOt, DateOt, string>>>
                 trip_id_to_route_id_map.at(trip_id);
         }
         tuple<DateOt, DateOt, string> info =
-            make_tuple(convert_GTFS_date_to_string(arrival_time),
-                       convert_GTFS_date_to_string(departure_time), stop_id);
+            make_tuple(arrival.value(), departure.value(), stop_id);
 
         std::get<1>(trip_id_to_info_map.at(trip_id)).push_back(info);
 

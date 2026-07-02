@@ -103,7 +103,8 @@ const vector<string> split_by_delimiter(
 }
 
 // ___________________________________________________________________________
-const tuple<string, bool> convert_GTFS_date_to_string(const string& time) {
+const std::optional<tuple<string, bool>> convert_GTFS_date_to_string(
+    const string& time) {
     const vector<string> tokens = split_by_delimiter(time, ":");
     if (tokens.size() != 3 || tokens[0].length() == 0 ||
         tokens[1].length() == 0 || tokens[2].length() == 0) {
@@ -120,8 +121,8 @@ const tuple<string, bool> convert_GTFS_date_to_string(const string& time) {
     }
     // we can only handle max one additional day right now
     if (hour > 23) {
-        std::cerr << "overflow < 24 hrs" << std::endl;
-        exit(1);
+        std::cerr << "overflow < 24 hrs, skipping time: " << time << std::endl;
+        return std::nullopt;
     }
 
     const string minute = tokens[1];

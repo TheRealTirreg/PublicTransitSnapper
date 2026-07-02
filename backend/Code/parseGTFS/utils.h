@@ -7,6 +7,7 @@
 #include <vector>
 #include <string>
 #include <tuple>
+#include <optional>
 
 // Convert degrees to radians.
 double degrees_to_radians(const double degrees);
@@ -38,8 +39,10 @@ const std::vector<std::string> split_by_delimiter(
 
 // GTFS times can hace more than 24 hours.
 // Convert to less than 24 with overtime bool.
-// Currently only works for less than 48 hours.
-const std::tuple<std::string, bool> convert_GTFS_date_to_string(
+// Currently only works for less than 48 hours, returns std::nullopt
+// (instead of aborting) if the time overflows by 2 days or more, since
+// callers only track a single extra day of overflow downstream.
+const std::optional<std::tuple<std::string, bool>> convert_GTFS_date_to_string(
     const std::string& time);
 
 #endif  // UTILS_H_

@@ -107,11 +107,11 @@ TEST(utilsTest, convert_GTFS_date_to_string) {
     ASSERT_DEATH(convert_GTFS_date_to_string(""), "Invalid time format: ");
     ASSERT_DEATH(convert_GTFS_date_to_string("::"), "Invalid time format: ");
     ASSERT_DEATH(convert_GTFS_date_to_string(":12:"), "Invalid time format: ");
-    ASSERT_EQ(convert_GTFS_date_to_string("00:00:00"),
+    ASSERT_EQ(convert_GTFS_date_to_string("00:00:00").value(),
               make_tuple("00:00:00", false));
-    ASSERT_EQ(convert_GTFS_date_to_string("01:33:70"),
+    ASSERT_EQ(convert_GTFS_date_to_string("01:33:70").value(),
               make_tuple("01:33:70", false));
-    ASSERT_EQ(convert_GTFS_date_to_string("42:42:42"),
+    ASSERT_EQ(convert_GTFS_date_to_string("42:42:42").value(),
               make_tuple("18:42:42", true));
-    ASSERT_DEATH(convert_GTFS_date_to_string("69:42:42"), "overflow < 24 hrs");
+    ASSERT_FALSE(convert_GTFS_date_to_string("69:42:42").has_value());
 }
