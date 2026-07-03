@@ -353,11 +353,17 @@ const tuple<const map<string, string>,
     json j1;
     string route_id; string service_id; string trip_id; string shape_id;
     while (in.read_row(route_id, service_id, trip_id, shape_id)) {
+        // shapes with no usable edges (missing from shapes.txt, blank
+        // shape_id, or too few points to form an edge) are skipped entirely.
+        // Checking this first avoids auto-vivifying a stray null entry in j1
+        // via operator[] below, which would otherwise crash the Python
+        // reader that expects every value to be a list.
+        if (shape_id_to_list_edge_ids_map.count(shape_id) == 0) {
+            continue;
+        }
+
         // save first edge of shape in the json at the first position
-        if (j1[shape_id].empty()) {
-            if (shape_id_to_list_edge_ids_map.count(shape_id) == 0) {
-                continue;
-            }
+        if (j1.count(shape_id) == 0) {
             uint32_t edge_id = shape_id_to_list_edge_ids_map.at(shape_id).at(0);
             j1[shape_id].push_back(edges_list_by_edge_id.at(edge_id));
         }
